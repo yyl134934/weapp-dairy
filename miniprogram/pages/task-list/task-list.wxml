@@ -1,0 +1,17 @@
+<!--pages/task-list/task-list.wxml-->
+<view class="task-list">
+  <text class="task-list-title">任务列表</text>
+  <form bindsubmit="handleAddTask" class="task-list-form">
+    <view class="form-create">
+      <input class="create-input" type="text" name="taskContent" value="{{iTaskContent}}" bind:input="handleSearch" placeholder="输入添加或搜索的值" confirm-type="done" />
+      <button class="create-btn" size="mini" plain formType="submit">添加</button>
+    </view>
+  </form>
+  <scroll-view class="task-list-container">
+    <view wx:if="{{taskList.length===0}}"><text>空空如也~</text></view>
+    <view class="task-list-item" wx:for="{{taskList}}" wx:key="index">
+      <text class="item-desc">{{item.content}}</text>
+      <image class="item-operation" style="height: 34rpx;width: 34rpx;" src="{{item.selected?'../../assets/images/dec.png':'../../assets/images/inc.png'}}" mode="aspectFit" bind:tap="handleModifyList" data-task="{{item}}" />
+    </view>
+  </scroll-view>
+</view>

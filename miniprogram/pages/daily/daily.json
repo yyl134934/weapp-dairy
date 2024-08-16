@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "phased-tasks": "./phased-tasks/phased-tasks"
+  }
+}

@@ -1,0 +1,10 @@
+<view class="index">
+  <text class="index-rules-title">我的奖励</text>
+  <rules-panel type="good" taskList="{{rewardList}}" />
+
+  <text class="index-rules-title">我的规则</text>
+  <rules-panel title="加分项" type="good" taskList="{{goodList}}" />
+  <rules-panel title="减分项" type="bad" taskList="{{badList}}" />
+
+  <points-table pointsData="{{pointsData}}" bind:onClockIn="onClockIn" />
+</view>

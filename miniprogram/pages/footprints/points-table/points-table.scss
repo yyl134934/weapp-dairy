@@ -1,0 +1,66 @@
+@import "../../../global-style.scss";
+
+.points-table {
+  display: flex;
+  flex-direction: column;
+  gap: 32rpx;
+
+  &-title {
+    font-size: large;
+    font-weight: 600;
+  }
+
+  &-header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 56rpx;
+    display: flex;
+    flex-direction: row;
+
+    &-field {
+      width: 100%;
+      font-weight: 600;
+      text-align: center;
+      justify-content: center;
+      align-items: flex-end;
+    }
+  }
+
+  &-body {
+    &-row {
+      display: flex;
+      flex-direction: row;
+      // border: 1px solid $theme-background-color;
+      gap: 1rpx;
+    }
+    &-field {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 96rpx;
+      // border-right: 1px solid $theme-background-color;
+      background-color: #ffffff;
+
+      &-date {
+        font-size: $theme-font-size;
+      }
+      &-point {
+        text-align: center;
+      }
+
+      &:last-child {
+        border: none;
+      }
+    }
+    .done {
+      background: repeating-linear-gradient(
+        135deg,
+        #e6f2ff 0px,
+        #e6f2ff 5px,
+        #b3d9ff 5px,
+        #0f4d8b 8px
+      );
+    }
+  }
+}

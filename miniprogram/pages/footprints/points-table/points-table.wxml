@@ -1,0 +1,21 @@
+<!--pages/index/points-table/points-table.wxml-->
+<view class="points-table">
+  <view class="points-table-title">积分足迹</view>
+  <!-- 表头 -->
+  <view class="points-table-header" wx:if="{{header.length}}">
+    <view wx:for="{{header}}" class="points-table-header-field">{{item}}</view>
+  </view>
+  <!-- 表内容 -->
+  <view class="points-table-body">
+    <view wx:for="{{pointsData}}" wx:for-item="row" class="points-table-body-row" wx:key="index">
+      <view data-filed="field" wx:for="{{row}}" wx:for-item="field" class="{{field.point!=='-'?'done':''}} points-table-body-field {{field.point!=='-'?'done':''}}" wx:for-index="field-index" wx:key="{{field-index}}">
+        <block>
+          <text class="points-table-body-field-date">{{field.date}}</text>
+          <text class="points-table-body-field-point">{{field.point}}</text>
+        </block>
+      </view>
+    </view>
+  </view>
+  <!-- 签到 -->
+  <button class="points-table-btn" bind:tap="handleClockIn" plain>积分</button>
+</view>

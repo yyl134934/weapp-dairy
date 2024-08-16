@@ -1,0 +1,3 @@
+<view class="daily">
+  <phased-tasks class="daily-phased-tasks" index="{{index}}" total="{{dailyData.length}}" wx:key="index" wx:for="{{dailyData}}" timePeriod="{{item.timePeriod}}" primaryTasks="{{item.primaryTasks}}" secondaryTasks="{{item.secondaryTasks}}" taskOfCompleteness="{{item.taskOfCompleteness}}" summary="{{item.summary}}" type="{{item.type}}" />
+</view>

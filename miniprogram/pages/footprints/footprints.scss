@@ -1,0 +1,14 @@
+.index {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 16rpx;
+  padding: 16rpx;
+  background-color: #eff2f5;
+  gap: 32rpx;
+
+  &-rules-title {
+    font-size: large;
+    font-weight: 600;
+  }
+}

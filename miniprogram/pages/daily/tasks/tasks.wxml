@@ -1,0 +1,23 @@
+<view class="tasks {{style}}">
+  <!-- 任务 -->
+  <block wx:if="{{type==='primary'||type==='secondary'}}">
+    <view class="title">
+      <!-- <text wx:if="{{index===0}}">{{title}}</text> -->
+      <text>{{title}}</text>
+      <view wx:if="{{hasTask}}" class="add-task-again" bind:tap="handleAddTask">+</view>
+    </view>
+    <scroll-view class="tasks-scroll-view" scroll-y>
+      <view class="add-task" wx:if="{{!hasTask}}">
+        <image class="add-task-icon" src="../../../assets/images/inc.png" mode="aspectFit" bind:tap="handleAddTask" />
+      </view>
+      <view class="task" wx:for="{{list}}" wx:key="index" bind:tap="handleModifyTaskStatus" data-task="{{item}}">
+        <checkbox value="{{item.id}}" checked="{{item.done}}" /><text>{{item.content}}</text>
+      </view>
+    </scroll-view>
+  </block>
+  <!-- 总结 -->
+  <block wx:if="{{type==='summary'||type==='completeness'}}">
+    <textarea class="task-textarea" placeholder="{{placeholder}}" adjust-position maxlength="{{-1}}" auto-height bind:blur="handleModifySummary" value="{{list}}"></textarea>
+    <!--  -->
+  </block>
+</view>

@@ -1,0 +1,57 @@
+@import "../../../global-style.scss";
+
+.phased-tasks {
+  display: flex;
+  font-size: $theme-font-size;
+  border-bottom: 1px solid #ffffff;
+  box-sizing: border-box;
+
+  &-time-period {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    width: 10vw;
+    font-size: $theme-font-size;
+    writing-mode: vertical-rl;
+    text-orientation: unset;
+  }
+  &-primary-tasks {
+    display: flex;
+    flex-direction: column;
+    padding: 10rpx 0 0 10rpx;
+    background-color: #b2f2bb;
+    width: 50vw;
+    gap: 20rpx;
+
+    & > .task:last-child {
+      margin-bottom: 10rpx;
+    }
+  }
+  &-secondary-tasks {
+    display: flex;
+    flex-direction: column;
+    background-color: #a5d8ff;
+    width: 50vw;
+    gap: 20rpx;
+  }
+  .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: $theme-font-size * 1.3;
+    font-weight: 600;
+
+    & > .add-task-again {
+      width: 40rpx;
+      margin-right: 20rpx;
+    }
+  }
+  .add-task {
+    flex: 1;
+    text-align: center;
+    align-self: center;
+    width: 100%;
+    font-size: $theme-font-size * 2;
+  }
+}

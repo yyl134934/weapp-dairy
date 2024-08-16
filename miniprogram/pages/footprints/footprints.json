@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "points-table": "./points-table/points-table",
+    "rules-panel": "./rules-panel/rules-panel"
+  }
+}

@@ -1,0 +1,8 @@
+<!--pages/index/rules-panel/rules-panel.wxml-->
+<view class="rules-area {{type}}">
+  <text class="rules-area-title">{{title}}</text>
+  <text wx:for="{{taskList}}" wx:key="{{item.goal}}" class="rules-area">
+    <text>{{index+1}}.{{item.goal}}</text>
+    <text class="rules-area-point">{{item.point>0?"+":""}}{{item.point}}分</text>
+  </text>
+</view>
