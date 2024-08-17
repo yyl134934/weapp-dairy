@@ -1,5 +1,4 @@
-// pages/daily/daily.js
-import { getRecentDailyData, createDailyData } from "../../apis/daily-api";
+import { getRecentDailyData, createDailyData } from "../../apis/diary-api";
 import { getToday } from "@/utils/day.js";
 import templates from "./template.config.js";
 Page({

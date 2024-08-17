@@ -35,7 +35,7 @@
 ### 足迹
 
 ```javascript
-const footprints_data=[{
+const footmark_data=[{
   id: "1";
   date:"1" || "20240808",
   clockInDate:"20240808",

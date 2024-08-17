@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/daily/daily",
-    "pages/footprints/footprints",
+    "pages/diary/diary",
+    "pages/footmark/footmark",
     "pages/shop/shop",
     "pages/my/my",
     "pages/task-list/task-list"
@@ -15,16 +15,16 @@
     "selectedColor": "#1296db",
     "list": [
       {
-        "pagePath": "pages/footprints/footprints",
+        "pagePath": "pages/footmark/footmark",
         "text": "首页",
-        "iconPath": "assets/images/index.png",
-        "selectedIconPath": "assets/images/index-selected.png"
+        "iconPath": "assets/images/footmark.png",
+        "selectedIconPath": "assets/images/footmark-selected.png"
       },
       {
-        "pagePath": "pages/daily/daily",
+        "pagePath": "pages/diary/diary",
         "text": "日记",
-        "iconPath": "assets/images/daily.png",
-        "selectedIconPath": "assets/images/daily-selected.png"
+        "iconPath": "assets/images/diary.png",
+        "selectedIconPath": "assets/images/diary-selected.png"
       },
       {
         "pagePath": "pages/shop/shop",

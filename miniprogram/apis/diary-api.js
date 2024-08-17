@@ -1,10 +1,10 @@
 import { getToday } from "@/utils/day";
 
-const DAILY_DATA = "daily_data";
+const DIARY_DATA = "diary_data";
 
 function getRecentDailyData() {
   try {
-    const data = wx.getStorageSync(DAILY_DATA) || [];
+    const data = wx.getStorageSync(DIARY_DATA) || [];
     return data.pop() || {};
   } catch (error) {
     console.error("获取日记数据失败：", error);
@@ -13,7 +13,7 @@ function getRecentDailyData() {
 }
 function getDailyData(dateStr = "19491001") {
   try {
-    const dailyData = wx.getStorageSync(DAILY_DATA) || [];
+    const dailyData = wx.getStorageSync(DIARY_DATA) || [];
     return dailyData.find((item) => dateStr === item.create_date) || {};
   } catch (error) {
     console.error("获取日记数据失败：", error);
@@ -22,7 +22,7 @@ function getDailyData(dateStr = "19491001") {
 }
 function getAllDailyData() {
   try {
-    return wx.getStorageSync(DAILY_DATA) || [];
+    return wx.getStorageSync(DIARY_DATA) || [];
   } catch (error) {
     console.error("获取日记数据失败：", error);
     return {};
@@ -32,8 +32,8 @@ function createDailyData(data) {
   const todayStr = getToday();
 
   try {
-    const allData = wx.getStorageSync(DAILY_DATA);
-    wx.setStorageSync(DAILY_DATA, [
+    const allData = wx.getStorageSync(DIARY_DATA);
+    wx.setStorageSync(DIARY_DATA, [
       ...allData,
       {
         create_date: todayStr,
@@ -61,7 +61,7 @@ function updateDailyData(id, task = {}, type = "") {
     const allData = getAllDailyData();
     allData.pop();
     allData.push({ ...recentData, daily_data: newData });
-    wx.setStorageSync(DAILY_DATA, allData);
+    wx.setStorageSync(DIARY_DATA, allData);
     return true;
   } catch (error) {
     console.error("更新任务数据成功：", error);
