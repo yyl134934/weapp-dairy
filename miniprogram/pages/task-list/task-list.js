@@ -106,6 +106,7 @@ Page({
     this.setData({
       taskList: this.data.taskList.concat(newTask),
       alternateList: this.data.alternateList.concat(newTask),
+      iTaskContent: "",
     });
   },
   handleSearch(e) {
