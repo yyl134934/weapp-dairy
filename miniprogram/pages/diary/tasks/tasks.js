@@ -1,4 +1,4 @@
-import { updateDailyData } from "../../../apis/daily-api.js";
+import { updateDailyData } from "../../../apis/diary-api";
 
 const DEFAULT_TYPE = "primary";
 const types = {
