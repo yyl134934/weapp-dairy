@@ -1,4 +1,9 @@
-import { loadTaskList, addTask, getTaskList } from "@/apis/task-list-api.js";
+import {
+  loadTaskList,
+  addTask,
+  getTaskList,
+  deleteTask,
+} from "@/apis/task-list-api.js";
 import _ from "lodash";
 
 Page({
@@ -10,6 +15,9 @@ Page({
     alternateList: [],
     iTaskContent: "",
     planId: "",
+    isMngStatus: false,
+    selectedSum: 0,
+    removeList: [],
     onSearch: () => {},
   },
   _mergeList(allTasks, tasksInPlan) {
@@ -104,14 +112,48 @@ Page({
     const newTask = createTask(taskContent);
     addTask(newTask);
     this.setData({
-      taskList: this.data.taskList.concat(newTask),
+      taskList: this.data.alternateList.concat(newTask),
       alternateList: this.data.alternateList.concat(newTask),
+      iTaskContent: "",
     });
   },
   handleSearch(e) {
     const { value: taskContent = "" } = e.detail;
 
     this.data.onSearch(taskContent);
+  },
+  handleManage(e) {
+    this.setData({ isMngStatus: true });
+  },
+  /**
+   * 1.删除勾选任务；2.退出管理状态。
+   * @param {*} e
+   */
+  handleRemoveTask(e) {
+    const { alternateList, removeList } = this.data;
+    const remain = alternateList.filter(
+      (item) => !removeList.includes(`${item.id}`)
+    );
+    deleteTask(remain);
+    this.setData({
+      isMngStatus: false,
+      selectedSum: 0,
+      removeList: [],
+      taskList: remain,
+      alternateList: remain,
+    });
+  },
+  /**
+   * 选中任务项触发，统计需要删除的任务项。
+   * @param {*} e
+   */
+  handleSelectTask(e) {
+    const { value: selectedList = [] } = e.detail;
+
+    this.setData({
+      selectedSum: selectedList.length,
+      removeList: selectedList,
+    });
   },
   onUnload() {
     const ec = this.getOpenerEventChannel();

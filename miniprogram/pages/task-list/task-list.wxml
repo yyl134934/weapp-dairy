@@ -1,6 +1,10 @@
 <!--pages/task-list/task-list.wxml-->
 <view class="task-list">
-  <text class="task-list-title">任务列表</text>
+  <view class="task-list-header">
+    <text class="task-list-title">任务列表</text>
+    <button size="mini" wx:if="{{!isMngStatus}}" bind:tap="handleManage">管理</button>
+    <button size="mini" wx:if="{{isMngStatus}}" bind:tap="handleRemoveTask">删除({{selectedSum}})</button>
+  </view>
   <form bindsubmit="handleAddTask" class="task-list-form">
     <view class="form-create">
       <input class="create-input" type="text" name="taskContent" value="{{iTaskContent}}" bind:input="handleSearch" placeholder="输入添加或搜索的值" confirm-type="done" />
@@ -9,9 +13,12 @@
   </form>
   <scroll-view class="task-list-container">
     <view wx:if="{{taskList.length===0}}"><text>空空如也~</text></view>
-    <view class="task-list-item" wx:for="{{taskList}}" wx:key="index">
-      <text class="item-desc">{{item.content}}</text>
-      <image class="item-operation" style="height: 34rpx;width: 34rpx;" src="{{item.selected?'../../assets/images/dec.png':'../../assets/images/inc.png'}}" mode="aspectFit" bind:tap="handleModifyList" data-task="{{item}}" />
-    </view>
+    <checkbox-group bind:change="handleSelectTask">
+      <view class="task-list-item" wx:for="{{taskList}}" wx:key="index">
+        <checkbox wx:if="{{isMngStatus}}" value="{{item.id}}"></checkbox>
+        <text class="item-desc">{{item.content}}</text>
+        <image wx:if="{{!isMngStatus}}" class="item-operation" style="height: 34rpx;width: 34rpx;" src="{{item.selected?'../../assets/images/dec.png':'../../assets/images/inc.png'}}" mode="aspectFit" bind:tap="handleModifyList" data-task="{{item}}" />
+      </view>
+    </checkbox-group>
   </scroll-view>
 </view>
