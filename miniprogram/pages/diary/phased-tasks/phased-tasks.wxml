@@ -1,4 +1,3 @@
-<!--pages/daily/phased-tasks/phased-tasks.wxml-->
 <view class="phased-tasks" style="height:{{100/total}}vh;">
   <view class="phased-tasks-time-period"><text>{{timeStr}}</text></view>
   <block wx:if="{{type==='tasks'}}">

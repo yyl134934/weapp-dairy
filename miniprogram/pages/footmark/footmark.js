@@ -1,4 +1,4 @@
-import { loadPoinData, updatePointsData } from "@/apis/footprints-api";
+import { loadPoinData, updatePointsData } from "@/apis/footmark-api";
 Page({
   data: {
     pointsData: [[]],
