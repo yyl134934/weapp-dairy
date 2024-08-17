@@ -49,14 +49,13 @@ export function addTask(task = {}) {
     return false;
   }
 }
-export function deleteTask(task = {}) {
-  const allData = getTaskList();
+
+export function deleteTask(data = []) {
   try {
-    const newData = allData.filter((item) => item.id !== task.id);
-    wx.setStorageSync(TASK_LIST, newData);
+    wx.setStorageSync(TASK_LIST, data);
     return true;
   } catch (error) {
-    console.error("添加任务数据成功：", error);
+    console.error("删除任务数据成功：", error);
     return false;
   }
 }
